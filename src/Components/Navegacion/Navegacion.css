@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(27, 26, 26, 0.3);
+  box-shadow: 0 4px 10px rgba(129, 128, 128, 0.2);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.logo:hover {
+  color: #ff8c00;
+  transform: scale(1.08);
+}
+
+.logo svg {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  cursor: pointer;
+  transition: transform 0.8s ease;
+}
+
+.menu li:hover {
+  transform: scale(1.2);
+  color: #ff8c00;
+
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.menu a:hover {
+  color: #ff8c00;
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 4px;
+  width: 30px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: background-color 0.3s ease;
+}
+
+.bar:nth-child(2) {
+  width: 20px;
+}
+
+.mobile-toggle:hover .bar {
+  background-color: #ff8c00;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: rgba(27, 26, 26, 0.7);
+    box-shadow: 0 4px 10px rgba(129, 128, 128, 0.2);
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(27, 26, 26, 0.7);
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(129, 128, 128, 0.2);
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease, top 0.5s ease;
+  }
+
+  .menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    top: 70px;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu {
+    display: flex;
+  }
+
+  .menu.open {
+    position: relative;
+    top: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    width: auto;
+    flex-direction: row;
+  }
+
+  .mobile-toggle {
+    display: none;
+  }
+}
